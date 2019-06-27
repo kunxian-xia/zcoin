@@ -1136,7 +1136,7 @@ bool CheckTransaction(const CTransaction &tx, CValidationState &state, uint256 h
 
     // Check for duplicate inputs
     set <COutPoint> vInOutPoints;
-    set <CScript> spendScripts;
+    set <CScript> spendScripts; // FATAL: it contains the set of "used" serial numbers.
     BOOST_FOREACH(
     const CTxIn &txin, tx.vin)
     {

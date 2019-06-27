@@ -129,6 +129,8 @@ public:
     }
 
     std::string ToString() const;
+    // for spend tx, the input is a special form of CTxIn with prevout.IsNull() and the scriptSig
+    // has special form: scriptSig[0] = OP_ZEROCOINSPEND.
     bool IsZerocoinSpend() const;
 };
 
@@ -137,6 +139,7 @@ public:
  */
 class CTxOut
 {
+    // for a mint tx, the scriptPubKey has special form: scriptPubKey[0] = OP_ZEROCOINMINT 
 public:
     CAmount nValue;
     CScript scriptPubKey;
